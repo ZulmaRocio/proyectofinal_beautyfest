@@ -1,0 +1,43 @@
+<form [formGroup]="formulario" (ngSubmit)="lead()"  class="container mt-5"  >
+    <div class="mb-3">
+        <label  for="exampleInputEmail1" class="form-label">Nombre</label>
+        <input formControlName="nombrelead" type="correo" class="form-control" id="exampleInputEmail1">
+      
+      <p  *ngIf="formulario.get('nombrelead')?.hasError('required') && formulario.get('nombrelead')?.touched">Nombre obligatorio</p>
+      </div>
+    <div class="mb-3">
+      <label  for="exampleInputEmail2" class="form-label">Correo electronico</label>
+      <input formControlName="correolead"  type="email" class="form-control" id="exampleInputEmail2">
+      <p *ngIf="formulario.get('correolead')?.hasError('pattern')">Correo invalido</p>
+      <p  *ngIf="formulario.get('correolead')?.hasError('required') && formulario.get('correolead')?.touched">Correo obligatorio</p>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Telefono</label>
+      <input  formControlName="telefonolead" type="number" class="form-control" id="exampleInputPassword1" >
+      <p  *ngIf="formulario.get('telefonolead')?.hasError('required') && formulario.get('telefonolead')?.touched">Telefono obligatorio</p>
+    </div>
+    <button type="submit" [disabled]="formulario.invalid" class="btn btn-primary">Submit</button>
+  </form>
+
+
+<!--db.Renault1988_2000.insertMany([
+{nombre:"Renault 3", modelo: 1960, motor:"603cc", producidos:2571},
+{nombre:"Renault 4", modelo: 1961, motor:"747cc", producidos:8135424},
+{nombre:"Renault 5", modelo: 1960, motor:"1.600cc", producidos:5580000},
+{nombre:"Renault 6", modelo: 1968, motor:"845cc", producidos:1700000},
+{nombre:"Renault 7", modelo: 1974, motor:"1037cc", producidos:140000},
+{nombre:"Renault 16", modelo: 1965, motor:"1600cc", producidos:1845959},
+{nombre:"Renault 17", modelo: 1973, motor:"1605cc", producidos:69537},
+{nombre:"Renault 18", modelo: 1986, motor:"1400cc", producidos:2028964},
+{nombre:"Renault 30", modelo: 1983, motor:"2069cc", producidos:136000},
+{nombre:"Renault 11", modelo: 1983, motor:"2069cc", producidos:3200000}
+])
+
+db.Renault1988_2000.updateOne(
+    { "_id": ObjectId("6285ad3bd117ad912296f032")},
+    { $set: {modelo: 2022} }
+)
+
+-->
+
+

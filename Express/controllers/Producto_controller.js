@@ -40,7 +40,6 @@ exports.obtenerproductoxid = async(req, res) => {
 
 exports.actualizarproducto = async(req, res) => {
     try {
-        console.log(req.body)
         let productoActualizar = new Producto(req.body)
         
         let producto = await Producto.findById(productoActualizar._id)

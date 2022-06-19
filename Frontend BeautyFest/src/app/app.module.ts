@@ -8,6 +8,8 @@ import { ContactenosComponent } from './components/contactenos/contactenos.compo
 import { FooterComponent } from './components/footer/footer.component';
 import { VitrinaComponent } from './components/vitrina/vitrina.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductoComponent } from './components/producto/producto.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 
 @NgModule({
@@ -17,6 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ContactenosComponent,
     FooterComponent,
     VitrinaComponent,
+    ProductoComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,

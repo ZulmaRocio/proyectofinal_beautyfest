@@ -1,0 +1,36 @@
+<p>modal works!</p>
+
+<form class="d-flex" id="form_user">
+    <button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</button>
+</form>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        
+        <div class="modal-body">
+          <div class="d-flex justify-content-between  bg-white py-2">
+            <h3>Iniciar Sesión</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Nombre</label>
+              <input type="text" minlength="5" maxlength="15" class="form-control" id="exampleInputnombre1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Cédula</label>
+              <input type="number" class="form-control" id="cedula" aria-describedby="emailHelp">
+          </div>
+             <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" onclick="cambio_boton()" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Recordar Datos</label>
+            </div>
+                          <button type="button" style="margin: 10px" onclick="autenticacion()" class="btn btn-primary">Iniciar compra</button>
+              
+          </form>
+        </div>
+        
+      </div>|
+    </div>
+  </div>

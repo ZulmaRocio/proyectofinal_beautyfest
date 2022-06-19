@@ -38,19 +38,19 @@ exports.obtenerDetalleXID = async(req, res) => {
 
 exports.ActualizarDetalle = async(req, res) => {
     try {
-        const { id_producto, cantidad, id_cliente, vlor_item } = req.body
+        let detalle = new Detalle_factura(req.body)
 
-        let detalle_factura = await Detalle_factura.findById(req.params.id)
+        let detalle_factura = await Detalle_factura.findById(detalle._id)
         if (!detalle_factura) {
             res.status(404).json({ mensaje: "No existe la información solicitada" })
         }
 
-        Detalle_factura.id_producto = id_producto
-        Detalle_factura.cantidad = cantidad
-        Detalle_factura.id_cliente = id_cliente
-        Detalle_factura.vlor_item = vlor_item
+        detalle_factura.id_producto = detalle.id_producto
+        detalle_factura.cantidad = detalle.cantidad
+        detalle_factura.id_cliente = detalle.id_cliente
+        detalle_factura.vlor_item = detalle.vlor_item
         
-        let procesoUpdate = await Detalle_factura.findOneAndUpdate({ _id: req.params.id }, Detalle_factura, { new: true })
+        let procesoUpdate = await Detalle_factura.findOneAndUpdate({ _id: detalle._id }, detalle_factura, { new: true })
         res.json(procesoUpdate)
 
     } catch (error) {

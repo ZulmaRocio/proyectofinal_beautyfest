@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const ProductoSchema = mongoose.Schema({
+const productoSchema = mongoose.Schema({
     id_producto: {
         type: Number,
         required: true
@@ -23,4 +23,4 @@ const ProductoSchema = mongoose.Schema({
     },
 })
 
-module.exports = mongoose.model("producto", ProductoSchema)
+module.exports = mongoose.model("producto", productoSchema)

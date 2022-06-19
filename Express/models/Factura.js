@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const FacturaSchema = mongoose.Schema({
+const facturaSchema = mongoose.Schema({
     id_cliente: {
         type: String,
         required: true
@@ -24,4 +24,4 @@ const FacturaSchema = mongoose.Schema({
     
 })
 
-module.exports = mongoose.model("factura", FacturaSchema)
+module.exports = mongoose.model("factura", facturaSchema)

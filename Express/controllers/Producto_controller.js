@@ -1,10 +1,10 @@
 
-const modelProducto = require('../models/Producto')
+const Producto = require('../models/Producto')
 
 exports.crearproducto = async(req, res) => {
     try {
         let producto
-        producto = new producto(req.body)
+        producto = new Producto(req.body)
         await producto.save()
         res.send(producto)
     } catch (error) {
@@ -16,7 +16,7 @@ exports.crearproducto = async(req, res) => {
 
 exports.obtenerproductos = async(req, res) => {
     try {
-        let productos = await producto.find();
+        let productos = await Producto.find();
         res.json(productos)
     } catch (error) {
         console.log(error)
@@ -24,9 +24,10 @@ exports.obtenerproductos = async(req, res) => {
     }
 }
 
-exports.obtenerproducto = async(req, res) => {
+exports.obtenerproductoxid = async(req, res) => {
     try {
-        let producto = await producto.findById(req.params.id)
+        const id = req.params.id
+        let producto = await Producto.findById(id)
         if (!producto) {
             res.status(404).json({ mensaje: "No existe la información solicitada" })
         }
@@ -39,22 +40,24 @@ exports.obtenerproducto = async(req, res) => {
 
 exports.actualizarproducto = async(req, res) => {
     try {
-        const { id_producto, name, stock, costo, reservado} = req.body
-
-        let producto = await producto.findById(req.params.id)
+        console.log(req.body)
+        let productoActualizar = new Producto(req.body)
+        
+        let producto = await Producto.findById(productoActualizar._id)
         if (!producto) {
             res.status(404).json({ mensaje: "No existe la información solicitada" })
         }
 
-        producto.d_producto = id_producto
-        producto.name = name
-        producto.stock = stock
-        producto.costo = costo
-        producto.reservado = reservado
-     
+        producto.id_producto = productoActualizar.id_producto
+        producto.name = productoActualizar.name
+        producto.stock = productoActualizar.stock
+        producto.costo = productoActualizar.costo
+        producto.reservado = productoActualizar.reservado
 
-        let procesoUpdate = await producto.findOneAndUpdate({ _id: req.params.id }, producto, { new: true })
+        let procesoUpdate = await Producto.findOneAndUpdate({ _id: productoActualizar._id }, producto, { new: true })
         res.json(procesoUpdate)
+        
+        res.json({});
 
     } catch (error) {
         console.log(error)

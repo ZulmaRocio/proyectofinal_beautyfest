@@ -1,9 +1,10 @@
 
-const factura = require('../models/Factura')
+const Factura = require('../models/Factura')
 
 exports.crearFactura = async(req, res) => {
     try {
-        let factura = new factura(req.body)
+        let factura 
+        factura = new Factura(req.body)
         await factura.save()
         res.send(factura)
     } catch (error) {
@@ -12,10 +13,9 @@ exports.crearFactura = async(req, res) => {
     }
 }
 
-
 exports.obtenerFactura = async(req, res) => {
     try {
-        let facturas = await factura.find();
+        let facturas = await Factura.find();
         res.json(facturas)
     } catch (error) {
         console.log(error)
@@ -25,7 +25,7 @@ exports.obtenerFactura = async(req, res) => {
 
 exports.obtenerFacturaxID = async(req, res) => {
     try {
-        let factura = await factura.findById(req.params.id)
+        let factura = await Factura.findById(req.params.id)
         if (!factura) {
             res.status(404).json({ mensaje: "No existe la información solicitada" })
         }
@@ -40,18 +40,18 @@ exports.ActualizarFactura = async(req, res) => {
     try {
         const { id_cliente, nombre_cliente, fecha, valor_total, estado } = req.body
 
-        let factura = await factura.findById(req.params.id)
+        let factura = await Factura.findById(req.params.id)
         if (!factura) {
             res.status(404).json({ mensaje: "No existe la información solicitada" })
         }
 
         factura.id_cliente = id_cliente
         factura.nombre_cliente = nombre_cliente
-        factura.fecha = id_cliente
+        factura.fecha = fecha
         factura.valor_total = valor_total
         factura.estado = estado
 
-        let procesoUpdate = await factura.findOneAndUpdate({ _id: req.params.id }, factura, { new: true })
+        let procesoUpdate = await Factura.findOneAndUpdate({ _id: req.params.id }, factura, { new: true })
         res.json(procesoUpdate)
 
     } catch (error) {

@@ -13,7 +13,6 @@ exports.crearDetalle = async(req, res) => {
     }
 }
 
-
 exports.obtenerDetalle = async(req, res) => {
     try {
         let Detalle_facturas = await Detalle_factura.find();
@@ -39,22 +38,39 @@ exports.obtenerDetalleXID = async(req, res) => {
 
 exports.ActualizarDetalle = async(req, res) => {
     try {
-        const { id_cliente, nombre_cliente, fecha, valor_total, estado } = req.body
+        const { id_producto, cantidad, id_cliente, vlor_item } = req.body
 
         let Detalle_factura = await Detalle_factura.findById(req.params.id)
         if (!Detalle_factura) {
             res.status(404).json({ mensaje: "No existe la información solicitada" })
         }
 
+        Detalle_factura.id_producto = id_producto
+        Detalle_factura.cantidad = cantidad
         Detalle_factura.id_cliente = id_cliente
-        Detalle_factura.nombre_cliente = nombre_cliente
-        Detalle_factura.fecha = fecha
-        Detalle_factura.valor_total = valor_total
-        Detalle_factura.estado = estado
+        Detalle_factura.vlor_item = vlor_item
         
-
         let procesoUpdate = await Detalle_factura.findOneAndUpdate({ _id: req.params.id }, Detalle_factura, { new: true })
         res.json(procesoUpdate)
+
+    } catch (error) {
+        console.log(error)
+        res.status(500).send("Hay un problema")
+    }
+}
+
+
+exports.BorrarDetalle = async(req, res) => {
+    try {
+        let Detalle_factura = await Detalle_factura.findById(req.params.id)
+        if (!Detalle_factura) {
+            res.status(404).json({ mensaje: "No existe la información solicitada" })
+        }
+
+        let procesoUpdate = await Detalle_factura.deleteOne(
+            Detalle_factura
+            )
+        res.json(200)
 
     } catch (error) {
         console.log(error)

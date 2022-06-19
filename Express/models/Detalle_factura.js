@@ -1,27 +1,22 @@
 const mongoose = require('mongoose')
 
-const DetalleSchema = mongoose.Schema({
+const DetalleFacturaSchema = mongoose.Schema({
+    id_producto: {
+        type: Number,
+        required: true
+    },
+    cantidad: {
+        type: Number,
+        required: true
+    },
     id_cliente: {
         type: String,
         required: true
     },
-    nombre_cliente: {
-        type: String,
-        required: true
-    },
-    fecha: {
-        type: Date,
-        required: true
-    },
-    valor_total: {
+    vlor_item: {
         type: Number,
         required: true
-    },
-    estado: {
-        type: Boolean,
-        required: true
     }
-    
 })
 
-module.exports = mongoose.model("detalle_factura", DetalleSchema)
+module.exports = mongoose.model("detalleFactura", FacturaSchema)

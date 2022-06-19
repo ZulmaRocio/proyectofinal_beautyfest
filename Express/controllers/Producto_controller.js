@@ -1,12 +1,12 @@
 
 const modelProducto = require('../models/Producto')
 
-exports.crearContacto = async(req, res) => {
+exports.crearproducto = async(req, res) => {
     try {
-        let contacto
-        contacto = new Contacto(req.body)
-        await contacto.save()
-        res.send(contacto)
+        let producto
+        producto = new producto(req.body)
+        await producto.save()
+        res.send(producto)
     } catch (error) {
         console.log(error)
         res.status(500).send("Hay un problema")
@@ -14,46 +14,46 @@ exports.crearContacto = async(req, res) => {
 }
 
 
-exports.obtenerContactos = async(req, res) => {
+exports.obtenerproductos = async(req, res) => {
     try {
-        let contactos = await Contacto.find();
-        res.json(contactos)
+        let productos = await producto.find();
+        res.json(productos)
     } catch (error) {
         console.log(error)
         res.status(500).send("Hay un problema")
     }
 }
 
-exports.obtenerContacto = async(req, res) => {
+exports.obtenerproducto = async(req, res) => {
     try {
-        let contacto = await Contacto.findById(req.params.id)
-        if (!contacto) {
+        let producto = await producto.findById(req.params.id)
+        if (!producto) {
             res.status(404).json({ mensaje: "No existe la información solicitada" })
         }
-        res.json(contacto)
+        res.json(producto)
     } catch (error) {
         console.log(error)
         res.status(500).send("Hay un problema")
     }
 }
 
-exports.actualizarContacto = async(req, res) => {
+exports.actualizarproducto = async(req, res) => {
     try {
-        const { correo, nombre, direccion, ciudad, mensaje, edad } = req.body
+        const { id_producto, name, stock, costo, reservado} = req.body
 
-        let contacto = await Contacto.findById(req.params.id)
-        if (!contacto) {
+        let producto = await producto.findById(req.params.id)
+        if (!producto) {
             res.status(404).json({ mensaje: "No existe la información solicitada" })
         }
 
-        contacto.correo = correo
-        contacto.nombre = nombre
-        contacto.direccion = direccion
-        contacto.ciudad = ciudad
-        contacto.mensaje = mensaje
-        contacto.edad = edad
+        producto.d_producto = id_producto
+        producto.name = name
+        producto.stock = stock
+        producto.costo = costo
+        producto.reservado = reservado
+     
 
-        let procesoUpdate = await Contacto.findOneAndUpdate({ _id: req.params.id }, contacto, { new: true })
+        let procesoUpdate = await producto.findOneAndUpdate({ _id: req.params.id }, producto, { new: true })
         res.json(procesoUpdate)
 
     } catch (error) {

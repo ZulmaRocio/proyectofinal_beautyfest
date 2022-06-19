@@ -1,12 +1,12 @@
 
-const Contacto = require('../models/Contacto')
+const factura = require('../models/Factura')
 
 exports.crearFactura = async(req, res) => {
     try {
-        let contacto
-        contacto = new Contacto(req.body)
-        await contacto.save()
-        res.send(contacto)
+        let 
+        factura = new factura(req.body)
+        await factura.save()
+        res.send(factura)
     } catch (error) {
         console.log(error)
         res.status(500).send("Hay un problema")
@@ -16,8 +16,8 @@ exports.crearFactura = async(req, res) => {
 
 exports.obtenerFactura = async(req, res) => {
     try {
-        let contactos = await Contacto.find();
-        res.json(contactos)
+        let facturas = await factura.find();
+        res.json(facturas)
     } catch (error) {
         console.log(error)
         res.status(500).send("Hay un problema")
@@ -26,11 +26,11 @@ exports.obtenerFactura = async(req, res) => {
 
 exports.obtenerFacturaxID = async(req, res) => {
     try {
-        let contacto = await Contacto.findById(req.params.id)
-        if (!contacto) {
+        let factura = await factura.findById(req.params.id)
+        if (!factura) {
             res.status(404).json({ mensaje: "No existe la información solicitada" })
         }
-        res.json(contacto)
+        res.json(factura)
     } catch (error) {
         console.log(error)
         res.status(500).send("Hay un problema")
@@ -39,21 +39,19 @@ exports.obtenerFacturaxID = async(req, res) => {
 
 exports.ActualizarFactura = async(req, res) => {
     try {
-        const { correo, nombre, direccion, ciudad, mensaje, edad } = req.body
+        const { id_producto, cantidad, id_cliente, Vlor_item } = req.body
 
-        let contacto = await Contacto.findById(req.params.id)
-        if (!contacto) {
+        let factura = await factura.findById(req.params.id)
+        if (!factura) {
             res.status(404).json({ mensaje: "No existe la información solicitada" })
         }
 
-        contacto.correo = correo
-        contacto.nombre = nombre
-        contacto.direccion = direccion
-        contacto.ciudad = ciudad
-        contacto.mensaje = mensaje
-        contacto.edad = edad
+        factura.id_producto = id_producto
+        factura.cantidad = cantidad
+        factura.id_cliente = id_cliente
+        factura.Vlor_item = Vlor_item
 
-        let procesoUpdate = await Contacto.findOneAndUpdate({ _id: req.params.id }, contacto, { new: true })
+        let procesoUpdate = await factura.findOneAndUpdate({ _id: req.params.id }, factura, { new: true })
         res.json(procesoUpdate)
 
     } catch (error) {

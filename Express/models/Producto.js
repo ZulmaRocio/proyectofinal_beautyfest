@@ -1,18 +1,26 @@
 const mongoose = require('mongoose')
 
-const contactoSchema = mongoose.Schema({
-    nombre: {
+const ProductoSchema = mongoose.Schema({
+    id_producto: {
+        type: Number,
+        required: true
+    },
+    name: {
         type: String,
         required: true
     },
-    correo: {
-        type: String,
+    stock: {
+        type: Number,
         required: true
     },
-    telefono: {
-        type: String,
+    costo: {
+        type: Number,
         required: true
-    }
+    },
+    reservado: {
+        type: Number,
+        required: true
+    },
 })
 
-module.exports = mongoose.model("contacto", contactoSchema)
+module.exports = mongoose.model("producto", ProductoSchema)

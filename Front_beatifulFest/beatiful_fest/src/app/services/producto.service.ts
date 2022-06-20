@@ -8,18 +8,19 @@ import { Producto } from '../models/producto';
 })
 export class ProductoService {
 
-  url ='http://localhost:4000/api/producto/'
+  url ='http://localhost:4000/api/producto';
 
   constructor(private http: HttpClient ) { }
 
   //consulta de todos los productos
   getProductos(): Observable<any> {
+    console.log('a1');
     return this.http.get(this.url + '/obtenerProducto' )
   }
 
   //consulta de producto por id
   getProductoxId(id: string) : Observable<any>{
-    return this.http.get(this.url+'obtenerProductoxID/ '+ id)
+    return this.http.get(this.url+'/obtenerProductoxID/ '+ id)
   }
 
   //crear un producto
@@ -29,7 +30,7 @@ export class ProductoService {
 
   //Actualizar producto 
   putProducto(producto: Producto): Observable<any>{
-    return this.http.put(this.url + 'actualizarProducto', producto)
+    return this.http.put(this.url + '/actualizarProducto', producto)
   }
 
 }

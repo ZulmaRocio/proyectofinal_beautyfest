@@ -21,7 +21,7 @@ export class FacturaService {
   }
 
   //crear factura
-  postFactura(factura: factura):Observable<any> {
+  postFactura(factura: Factura):Observable<any> {
     return this.http.post(this.url + '/crearfactura', factura)
   }
 

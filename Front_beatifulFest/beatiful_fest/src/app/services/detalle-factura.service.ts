@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import { DetalleFactura, detalle_factura } from '../models/detalle_factura';
+import { DetalleFactura} from '../models/detalle_factura';
 
 @Injectable({
   providedIn: 'root'

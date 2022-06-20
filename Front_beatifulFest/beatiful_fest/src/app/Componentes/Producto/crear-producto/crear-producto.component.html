@@ -39,32 +39,32 @@
 -->
 
 <form   class="container" [formGroup]="productForm" (ngSubmit)="AgregarProducto()">
-  <h1 class="bd-title mb-0">Crea o Actualiza tu producto!</h1>
+  <h1 class="bd-title mb-0">Crea o Actualiza tu producto del inventario!</h1>
   <br>
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">identificador del producto</label>
-    <input type="number" class="form-control"  aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">Campo obligatorio</div>
+    <label for="exampleInputEmail1" class="form-label">Id Producto</label>
+    <input type="text" class="form-control"  formControlName="id_producto" aria-describedby="emailHelp">
+  <label *ngIf="productForm.get('id_producto')?.hasError('required') && productForm.get('id_producto')?.touched">Campo Obligatorio</label>
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Nombre</label>
-    <input type="text" class="form-control"  aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">Campo obligatorio</div>
+    <input type="text" class="form-control" formControlName="name" aria-describedby="emailHelp">
+    <label *ngIf="productForm.get('name')?.hasError('required') && productForm.get('name')?.touched">Campo Obligatorio</label>
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Cantidad de inventario</label>
-    <input type="number" class="form-control"  aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">Campo obligatorio</div>
+    <input type="number" class="form-control" formControlName="stock" aria-describedby="emailHelp">
+    <label *ngIf="productForm.get('stock')?.hasError('required') && productForm.get('stock')?.touched">Campo Obligatorio</label>
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Precio de ventas</label>
-    <input type="number" class="form-control"  aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">Campo obligatorio</div>
+    <input type="number" class="form-control"  formControlName="costo"aria-describedby="emailHelp">
+    <label *ngIf="productForm.get('costo')?.hasError('required') && productForm.get('costo')?.touched">Campo Obligatorio</label>
   </div>
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">identificador del producto</label>
-    <input type="text" class="form-control"  aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">Campo obligatorio</div>
+    <label for="exampleInputEmail1" class="form-label">Reservado</label>
+    <input type="text" class="form-control" formControlName="reservado" aria-describedby="emailHelp">
+    <label *ngIf="productForm.get('reservado')?.hasError('required') && productForm.get('reservado')?.touched">Campo Obligatorio</label>
   </div>
   <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -72,7 +72,7 @@
   </div>
    
   <div class="d-grid gap-2 col-6 mx-auto">
-    <button class="btn btn-primary" type="submit">Crear producto</button>
+    <button class="btn btn-primary" [disabled]="productForm.invalid" type="submit">Crear producto</button>
     <button class="btn btn-primary" type="button">Actualizar producto</button>
   </div>
 </form>

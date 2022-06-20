@@ -12,11 +12,11 @@ export class CrearProductoComponent implements OnInit {
   
   constructor(private formProducto: FormBuilder) {
     this.productForm = this.formProducto.group({
-        id_producto :new FormControl ('', [Validators.required]),
-        name: new FormControl('', [Validators.required]),
-        stock: new FormControl ('', [Validators.required]),
-        costo: new FormControl ('', [Validators.required]),
-        reservado: new FormControl( '', [Validators.required]),
+        id_producto : ['', Validators.required],
+        name:  ['', Validators.required],
+        stock:  ['', Validators.required],
+        costo:  ['', Validators.required],
+        reservado: ['', Validators.required],
       }
     )
 

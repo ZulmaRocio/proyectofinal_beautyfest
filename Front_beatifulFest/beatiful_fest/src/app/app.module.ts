@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,8 @@ import { FooterComponent } from './Componentes/footer/footer.component';
 import { ClienteComponent } from './Componentes/cliente/cliente.component';
 import { ListarFacturasComponent } from './Componentes/listar-facturas/listar-facturas.component';
 import { ListarProductosComponent } from './Componentes/Producto/listar-productos/listar-productos.component';
+import { CrearProductoComponent } from './Componentes/Producto/crear-producto/crear-producto.component';
+import { CardProductoComponent } from './Componentes/card-producto/card-producto.component';
 
 @NgModule({
   declarations: [
@@ -17,10 +20,13 @@ import { ListarProductosComponent } from './Componentes/Producto/listar-producto
     ClienteComponent,
     ListarFacturasComponent,
     ListarProductosComponent,
+    CrearProductoComponent,
+    CardProductoComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

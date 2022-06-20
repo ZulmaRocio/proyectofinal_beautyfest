@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Componentes/header/header.component';
@@ -12,6 +11,7 @@ import { ListarFacturasComponent } from './Componentes/listar-facturas/listar-fa
 import { ListarProductosComponent } from './Componentes/Producto/listar-productos/listar-productos.component';
 import { CrearProductoComponent } from './Componentes/Producto/crear-producto/crear-producto.component';
 import { CardProductoComponent } from './Componentes/card-producto/card-producto.component';
+
 
 @NgModule({
   declarations: [
@@ -34,3 +34,4 @@ import { CardProductoComponent } from './Componentes/card-producto/card-producto
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

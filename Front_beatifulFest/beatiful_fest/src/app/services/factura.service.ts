@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import { Factura } from '../models/factura';
@@ -12,7 +12,7 @@ export class FacturaService {
 
   //consulta de todas las facturas
   getFacturas(): Observable<any> {
-    return this.http.get(this.url + '/obtenerFactura' )
+    return this.http.get(this.url + 'obtenerFactura' )
   }
 
   //consulta de factura por id

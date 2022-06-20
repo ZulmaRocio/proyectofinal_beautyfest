@@ -13,7 +13,6 @@ exports.crearproducto = async(req, res) => {
     }
 }
 
-
 exports.obtenerproductos = async(req, res) => {
     try {
         let productos = await Producto.find();

@@ -15,7 +15,7 @@ router.delete('/borrar-contacto/:id', contactoController.borrarContacto)
 router.post('/factura/crearFactura', facturaController.crearFactura)
 router.get('/factura/obtenerFactura', facturaController.obtenerFactura)
 router.get('/factura/obtenerFacturaxID/:id', facturaController.obtenerFacturaxID)
-router.put('/factura/ActualizarFactura/:id', facturaController.ActualizarFactura)
+router.put('/factura/ActualizarFactura', facturaController.ActualizarFactura)
 
 router.post('/detalle_factura/crear', detallefacturaController.crearDetalleFactura)
 router.get('/detalle_factura/obtener', detallefacturaController.obtenerDetalle)

@@ -1,12 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "1c976d84-3d71-47bf-9d37-39d94f4bc8ed"
+    "analytics": "64b0679f-c484-4b62-8501-ec400ac59ea2"
   },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Chimbiribis": {
+    "beatiful_fest": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/chimbiribis",
+            "outputPath": "dist/beatiful_fest",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -30,12 +30,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/styles.css"
             ],
-            "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -74,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Chimbiribis:build:production"
+              "browserTarget": "beatiful_fest:build:production"
             },
             "development": {
-              "browserTarget": "Chimbiribis:build:development"
+              "browserTarget": "beatiful_fest:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -85,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Chimbiribis:build"
+            "browserTarget": "beatiful_fest:build"
           }
         },
         "test": {
@@ -108,5 +105,5 @@
       }
     }
   },
-  "defaultProject": "Chimbiribis"
+  "defaultProject": "beatiful_fest"
 }

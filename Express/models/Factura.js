@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const facturaSchema = mongoose.Schema({
     id_cliente: {
-        type: String,
+        type: Number,
         required: true
     },
     nombre_cliente: {

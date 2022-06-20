@@ -38,20 +38,20 @@ exports.obtenerFacturaxID = async(req, res) => {
 
 exports.ActualizarFactura = async(req, res) => {
     try {
-        const { id_cliente, nombre_cliente, fecha, valor_total, estado } = req.body
 
-        let factura = await Factura.findById(req.params.id)
+        let facturaActualizar = new Factura(req.body)
+        let factura = await Factura.findById(facturaActualizar._id)
         if (!factura) {
             res.status(404).json({ mensaje: "No existe la información solicitada" })
         }
 
-        factura.id_cliente = id_cliente
-        factura.nombre_cliente = nombre_cliente
-        factura.fecha = fecha
-        factura.valor_total = valor_total
-        factura.estado = estado
+        factura.id_cliente = facturaActualizar.id_cliente
+        factura.nombre_cliente = facturaActualizar.nombre_cliente
+        factura.fecha = facturaActualizar.fecha
+        factura.valor_total = facturaActualizar.valor_total
+        factura.estado = facturaActualizar.estado
 
-        let procesoUpdate = await Factura.findOneAndUpdate({ _id: req.params.id }, factura, { new: true })
+        let procesoUpdate = await Factura.findOneAndUpdate({ _id: factura._id }, factura, { new: true })
         res.json(procesoUpdate)
 
     } catch (error) {

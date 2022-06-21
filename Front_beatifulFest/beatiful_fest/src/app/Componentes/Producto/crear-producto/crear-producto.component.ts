@@ -19,6 +19,7 @@ export class CrearProductoComponent implements OnInit {
         stock:  ['', Validators.required],
         costo:  ['', Validators.required],
         reservado: ['', Validators.required],
+        imagen: ['', Validators.required]
       }
     )
 
@@ -33,7 +34,8 @@ export class CrearProductoComponent implements OnInit {
       name:this.productForm.get('name')?.value ,
       stock: this.productForm.get('stock')?.value,
       costo: this.productForm.get('costo')?.value ,
-      reservado: this.productForm.get('reservado')?.value
+      reservado: this.productForm.get('reservado')?.value,
+      imagen: this.productForm.get('imagen')?.value
     }
   
 

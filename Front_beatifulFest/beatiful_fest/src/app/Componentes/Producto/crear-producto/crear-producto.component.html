@@ -46,10 +46,16 @@
     <input type="text" class="form-control"  formControlName="id_producto" aria-describedby="emailHelp">
   <label *ngIf="productForm.get('id_producto')?.hasError('required') && productForm.get('id_producto')?.touched">Campo Obligatorio</label>
   </div>
+ 
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Nombre</label>
     <input type="text" class="form-control" formControlName="name" aria-describedby="emailHelp">
     <label *ngIf="productForm.get('name')?.hasError('required') && productForm.get('name')?.touched">Campo Obligatorio</label>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">URL imagen</label>
+    <input type="text" class="form-control" formControlName="imagen" aria-describedby="emailHelp">
+    <label *ngIf="productForm.get('imagen')?.hasError('required') && productForm.get('imagen')?.touched">Campo Obligatorio</label>
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Cantidad de inventario</label>

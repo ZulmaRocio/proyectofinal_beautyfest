@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Producto } from '../../../models/producto';
 import { ProductoService } from '../../../services/producto.service';
+import swal from'sweetalert2';
+import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-crear-producto',
   templateUrl: './crear-producto.component.html',
@@ -12,7 +15,7 @@ export class CrearProductoComponent implements OnInit {
   Producto :[]=[]
   
 
-  constructor(private formProducto: FormBuilder,private _servicio:ProductoService) {
+  constructor(private formProducto: FormBuilder,private _servicio:ProductoService, private route: Router) {
     this.productForm = this.formProducto.group({
         id_producto : ['', Validators.required],
         name:  ['', Validators.required],
@@ -40,9 +43,16 @@ export class CrearProductoComponent implements OnInit {
   
 
   this._servicio.postProduct(crearProducto).subscribe(data=>{
-console.log(data)
+  console.log(data);
+  this.route.navigate(['/productos']);
+  swal.fire('Gracias...', 'Su producto fue creado exitosamente.', 'success');
   },error => {
-    console.log(error)
+    console.log(error);
+    swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'No se pudo almacenar el producto!'
+    })
   })
     
   }

@@ -11,6 +11,7 @@ import { ListarFacturasComponent } from './Componentes/listar-facturas/listar-fa
 import { ListarProductosComponent } from './Componentes/Producto/listar-productos/listar-productos.component';
 import { CrearProductoComponent } from './Componentes/Producto/crear-producto/crear-producto.component';
 import { CardProductoComponent } from './Componentes/card-producto/card-producto.component';
+import { CrearfacturaComponent } from './Componentes/crearfactura/crearfactura.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { CardProductoComponent } from './Componentes/card-producto/card-producto
     ListarProductosComponent,
     CrearProductoComponent,
     CardProductoComponent,
+    CrearfacturaComponent,
   ],
   imports: [
     BrowserModule,

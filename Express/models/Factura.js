@@ -19,8 +19,8 @@ const facturaSchema = mongoose.Schema({
     },
     estado: {
         type: Boolean,
-        required: true,
-        default:false
+        required:false,
+        default:true
 
     }
     

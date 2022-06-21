@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Factura } from '../../models/factura';
 import { FacturaService } from '../../services/factura.service';
+import swal from'sweetalert2';
 
 @Component({
   selector: 'app-crearfactura',
@@ -37,9 +38,15 @@ export class CrearfacturaComponent implements OnInit {
   
 
   this._servicio.postFactura(crearfactura).subscribe(data=>{
-console.log(data)
+console.log(data);
+swal.fire('Gracias...', 'Su factura fue creada exitosamente.', 'success');
   },error => {
-    console.log(error)
+    console.log(error);
+    swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'No se pudo almacenar la factura!'
+    })
   })
 }
 }

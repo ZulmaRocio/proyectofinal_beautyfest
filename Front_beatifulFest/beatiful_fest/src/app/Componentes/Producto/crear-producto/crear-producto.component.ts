@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
-
+import { Producto } from '../../../models/producto';
+import { ProductoService } from '../../../services/producto.service';
 @Component({
   selector: 'app-crear-producto',
   templateUrl: './crear-producto.component.html',
@@ -8,9 +9,10 @@ import {FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class CrearProductoComponent implements OnInit {
   productForm: FormGroup;
-
+  Producto :[]=[]
   
-  constructor(private formProducto: FormBuilder) {
+
+  constructor(private formProducto: FormBuilder,private _servicio:ProductoService) {
     this.productForm = this.formProducto.group({
         id_producto : ['', Validators.required],
         name:  ['', Validators.required],
@@ -26,7 +28,21 @@ export class CrearProductoComponent implements OnInit {
   }
 
   AgregarProducto() {
-    console.log('a');
+    const crearProducto:Producto ={
+      id_producto: this.productForm.get('id_producto')?.value,
+      name:this.productForm.get('name')?.value ,
+      stock: this.productForm.get('stock')?.value,
+      costo: this.productForm.get('costo')?.value ,
+      reservado: this.productForm.get('reservado')?.value
+    }
+  
+
+  this._servicio.postProduct(crearProducto).subscribe(data=>{
+console.log(data)
+  },error => {
+    console.log(error)
+  })
+    
   }
 
 }

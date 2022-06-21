@@ -1,0 +1,31 @@
+
+<form   class="container"[formGroup]="productForm" (ngSubmit)="AgregarFactura()">
+    <h1 class="bd-title mb-0">Crea tu factura de Venta!</h1>
+    <br>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Identificación cliente</label>
+      <input type="number" class="form-control"  formControlName="id_cliente" aria-describedby="emailHelp">
+      <label *ngIf="productForm.get('id_cliente')?.hasError('required') && productForm.get('id_cliente')?.touched">Campo Obligatorio</label>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Nombre cliente</label>
+      <input type="text" class="form-control" formControlName="nombre_cliente" aria-describedby="emailHelp">
+      <label *ngIf="productForm.get('nombre_cliente')?.hasError('required') && productForm.get('nombre_cliente')?.touched">Campo Obligatorio</label>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Fecha Factura</label>
+      <input type="date" class="form-control" formControlName="fecha" aria-describedby="emailHelp">
+      <label *ngIf="productForm.get('fecha')?.hasError('required') && productForm.get('fecha')?.touched">Campo Obligatorio</label>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label"> Valor Factura</label>
+      <input type="number" class="form-control"  formControlName="valor_total"aria-describedby="emailHelp">
+      <label *ngIf="productForm.get('valor_total')?.hasError('required') && productForm.get('valor_total')?.touched">Campo Obligatorio</label>
+    </div>
+
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button class="btn btn-primary"  type="submit">Crear factura</button>
+      <button class="btn btn-primary" type="button">Actualizar factura</button>
+    </div>
+  </form>
+  

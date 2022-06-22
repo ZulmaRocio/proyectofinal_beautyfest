@@ -10,8 +10,8 @@ import { FacturaService } from '../../services/factura.service';
 export class ListarFacturasComponent implements OnInit {
 
   Factura12: Factura[]=[]
+  
   constructor(private Factura1:FacturaService ) { }
-
 
   ngOnInit(): void {
     this.consultarProductos();

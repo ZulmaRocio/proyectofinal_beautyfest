@@ -21,7 +21,6 @@ export class ListarProductosComponent implements OnInit {
   consultarProductos() {
   
     this.productoService.getProductos().subscribe(data => {
-    console.log(data);
     this.lstProductos = data;
     console.log(this.lstProductos);
   }, error=> {

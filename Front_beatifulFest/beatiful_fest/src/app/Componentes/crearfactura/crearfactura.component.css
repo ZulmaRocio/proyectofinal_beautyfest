@@ -1,0 +1,19 @@
+.btn-primary{
+    background: #B5A1B7!important;
+    color: #000 !important;
+    border-color: #B5A1B7!important ;
+    border-radius: 0!important;
+    padding: 0.25rem 1.75rem;
+}
+
+.btn-primary:hover{
+    background: #927795 !important;
+    border-color: #927795 !important;
+    color: #000 !important;
+}
+
+.btn-primary:focus{
+    background: #B5A1B7 !important;
+    border-color: #B5A1B7!important;
+    color: #000!important;
+}

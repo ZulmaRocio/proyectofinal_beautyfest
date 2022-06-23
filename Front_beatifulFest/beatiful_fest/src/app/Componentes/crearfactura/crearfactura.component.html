@@ -1,6 +1,6 @@
 
 <form   class="container"[formGroup]="productForm" (ngSubmit)="AgregarFactura()">
-    <h1 class="bd-title mb-0">Crea tu factura de Venta!</h1>
+    <h1 class="bd-title mb-0 text-center title__page" >Crea tu factura de Venta!</h1>
     <br>
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Identificación cliente</label>
@@ -24,8 +24,8 @@
     </div>
 
     <div class="d-grid gap-2 col-6 mx-auto">
-      <button class="btn btn-primary" [disabled]="productForm.invalid"  type="submit">Crear factura</button>
-  
+      <button class="btn btn-primary  mb-5" [disabled]="productForm.invalid"  type="submit">Crear factura</button>
+
     </div>
   </form>
   

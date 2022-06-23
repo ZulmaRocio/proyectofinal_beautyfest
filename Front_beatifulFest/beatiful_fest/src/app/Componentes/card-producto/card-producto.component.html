@@ -1,20 +1,31 @@
 
 
-<button type="button" class="btn btn-primary" (click)="comprar()" data-bs-toggle="modal" data-bs-target="#exampleModal">Carrito</button>
-<div class="row row-cols-1 row-cols-md-3 g-4" id="contenido">
-<div class="col" *ngFor="let item of Producto12; let indice = index">
-  <div class="card" style="align-items: center" >
-   <img src="{{item.imagen}}" class="card-img-top " style="width: 150px " alt="...">
-   <div class="card-body">
-     <!-- <h5 class="card-title">{{item.id_producto}}</h5> -->
-     <p class="card-text">Nombre: {{item.name}} <span class="fs-2" style="color: red" ></span></p>
-     <p class="card-text">Precio: ${{item.costo}} </p>
-     <a  class="btn btn-primary" (click)="Agregar(indice)">Agregar al carrito</a>
-     <!-- <input type="number" placeholder="Cantidad a comprar" #cantidad{{indice}}> -->
-     </div>
-  </div>
-  </div>`
+
+<!-- banner begin -->
+<div class="banner__store">
+ <img src="https://images.unsplash.com/photo-1485875437342-9b39470b3d95?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1473&q=80" alt="banner image" /> 
 </div>
+<!-- banner end -->
+
+<div class="container">
+  <h2 class="mb-5 text-center title__page">Catálogo</h2>
+  <button type="button" class="btn btn-primary mb-5" (click)="comprar()" data-bs-toggle="modal" data-bs-target="#exampleModal">Carrito de compras</button>
+  <div class="row row-cols-1 row-cols-md-3 g-4" id="contenido">
+    <div class="col card__product" *ngFor="let item of Producto12; let indice = index">
+      <div class="card shadow-sm" >
+         <div class="card-body text-center pb-5">
+          <img src="{{item.imagen}}" class="card-img-top " style="width: 150px " alt="...">
+         <!-- <h5 class="card-title">{{item.id_producto}}</h5> -->
+         <p class="card-text"><strong>{{item.name}}</strong>  <span class="fs-2" style="color: red" ></span></p>
+         <p class="card-text">Precio: <strong>{{item.costo | currency}} </strong></p>
+         <a  class="btn btn-primary" (click)="Agregar(indice)">Agregar al carrito</a>
+         <!-- <input type="number" placeholder="Cantidad a comprar" #cantidad{{indice}}> -->
+         </div>
+      </div>
+      </div>`
+    </div>
+</div>
+
 
 
 
@@ -41,13 +52,13 @@
               <th scope="row" *ngIf="item!=null">{{indice+1}}</th>
               <td *ngIf="item!=null">{{Producto12[indice].name}}</td>
               <td *ngIf="item!=null">{{item}}</td>
-              <td *ngIf="item!=null">{{Valor[indice]}}</td>
+              <td *ngIf="item!=null">{{Valor[indice] | currency}}</td>
             </tr>  
             <tr>
               <th scope="row"></th>
               <td>Pago Total</td>
               <td></td>
-              <td>{{Total2}}</td>
+              <td>{{Total2 | currency}}</td>
             </tr>  
           </tbody>
           

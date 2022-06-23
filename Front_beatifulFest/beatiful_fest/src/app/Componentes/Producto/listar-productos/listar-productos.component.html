@@ -1,4 +1,5 @@
-<table class="table" *ngIf="this.lstProductos">
+<div class="container">
+  <table class="table" *ngIf="this.lstProductos">
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
@@ -16,8 +17,8 @@
       <td>{{item.stock}}</td>
       <td>$ {{item.costo}}</td>
       <td>{{item.reservado}}</td>
-      <button>Editar</button>
     </tr>
 
   </tbody>
 </table>
+</div>

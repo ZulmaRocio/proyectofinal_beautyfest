@@ -1,6 +1,6 @@
 
 <form   class="container" [formGroup]="productForm" (ngSubmit)="AgregarProducto()">
-  <h1 class="bd-title mb-0">Crea o Actualiza tu producto del inventario!</h1>
+  <h1 class="bd-title mb-0 text-center title__page">Crea tu producto del inventario!</h1>
   <br>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Id Producto</label>
@@ -39,7 +39,7 @@
   </div>
    
   <div class="d-grid gap-2 col-6 mx-auto">
-    <button class="btn btn-primary" [disabled]="productForm.invalid" type="submit">Crear producto</button>
+    <button class="btn btn-primary btn-primary:hover " [disabled]="productForm.invalid" type="submit">Crear producto</button>
   </div>
 </form>
 

@@ -9,9 +9,13 @@ import { ProductoService } from '../../services/producto.service';
 })
 export class CardProductoComponent implements OnInit {
   
-  Producto12: Producto[]=[]
+  Producto12: any []=[]
+  Total:any=[]
+  Valor:any=[]
+  Total2:any= 0;
   
   constructor(private Producto1:ProductoService) { }
+  
 
   ngOnInit(): void {
     this.consultarProductos()
@@ -29,4 +33,24 @@ export class CardProductoComponent implements OnInit {
   }
 
 
+comprar(){}
+Agregar(indice:any){
+  if (this.Total[indice]==null) {
+    this.Total[indice]=1
+    }
+  else{
+    this.Total[indice]++
+
+  }
+ this.Valor[indice]=parseInt(this.Producto12[indice].costo) * this.Total[indice];
+    console.log(this.Total)
+    console.log(this.Producto12[indice].costo)
+    console.log(this.Total[indice])
+
+
+  this.Total2 =  this.Total2+parseInt(this.Producto12[indice].costo)
+
 }
+
+}
+
